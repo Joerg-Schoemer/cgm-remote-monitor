@@ -187,8 +187,9 @@ label {
 }
 
 .other {
-    fill: darkgray;
-    stroke: darkred;
+    fill: none;
+    stroke: darkgray;
+    stroke-width: 2px;
 }
 
 .high-line {
@@ -276,6 +277,66 @@ text.override {
     opacity: 0.2;
     stroke: white;
     fill: brown;
+}
+
+#rp_edittreatmentdialog label {
+    padding-top: 5px
+}
+
+.editTreatment, .deleteTreatment {
+    cursor: pointer;
+}
+
+table.treatments {
+    border-collapse: collapse;
+}
+
+table.treatments tr:nth-child(1) {
+    background-color: grey;
+    color: white;
+}
+
+table.treatments tr:not(:first-child):hover {
+    background-color: lightskyblue;
+}
+
+table.treatments td, table.treatments th {
+    padding: 5px;
+}
+
+table.treatments tr.border_bottom td {
+    border: 1pt solid lightgrey;
+}
+
+table.treatments td.next_day {
+    background-color: lightgrey;
+    column-span: 14;
+    font-weight: bold;
+}
+
+td.time {
+    text-align: center;
+}
+
+td.number {
+    text-align: right;
+}
+
+td.text {
+    text-align: left;
+}
+
+.leftButton {
+    float: left;
+}
+
+form {
+    display: grid;
+    gap: 20px;
+}
+
+form textarea {
+    width: 100%;
 }
 
 @media print {
