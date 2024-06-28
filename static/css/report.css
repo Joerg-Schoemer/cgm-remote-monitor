@@ -285,10 +285,12 @@ text.override {
 
 .editTreatment, .deleteTreatment {
     cursor: pointer;
+    padding-left: 10px;
 }
 
 table.treatments {
     border-collapse: collapse;
+    width: 100%;
 }
 
 table.treatments tr:nth-child(1) {
