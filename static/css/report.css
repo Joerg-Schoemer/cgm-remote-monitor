@@ -306,12 +306,12 @@ table.treatments {
     width: 100%;
 }
 
-table.treatments tr:nth-child(1) {
+table.treatments thead tr {
     background-color: grey;
     color: white;
 }
 
-table.treatments tr:not(:first-child):hover {
+table.treatments tbody tr:hover {
     background-color: lightskyblue;
 }
 
@@ -325,6 +325,7 @@ table.treatments tr.border_bottom td {
 
 table.treatments td.next_day {
     background-color: lightgrey;
+    color: black;
     column-span: 14;
     font-weight: bold;
 }
@@ -352,6 +353,10 @@ form {
 
 form textarea {
     width: 100%;
+}
+
+#filter-text {
+    margin-bottom: 2em;
 }
 
 @media print {
