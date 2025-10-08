@@ -230,7 +230,7 @@ label {
 
 .chart {
     background-color: whitesmoke;
-    display: inline-block;
+    display: block;
     padding: 15px;
 }
 
