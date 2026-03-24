@@ -54,56 +54,12 @@ text.treatment {
     text-align: center;
 }
 
-#pluginchartplaceholders {
-    padding: 0 15px;
-}
-
 #explanation {
     font: 11px verdana, arial, sans-serif;
 }
 
-#tabnav {
-    text-align: left;
-    margin: 1em 0 0;
-    font: bold 11pt verdana, arial, sans-serif;
-    border-bottom: 1px solid #6c6;
-    list-style-type: none;
-    padding: 0 0 0 15px;
-}
-
-#tabnav li {
-    display: inline-block;
-    padding: 10px 15px;
-    border-top: 1px solid #6c6;
-    border-right: 1px solid #6c6;
-    border-bottom: none;
-    background-color: #cfc;
-    color: #666;
-    margin: 0 0 -1px 0;
-    text-decoration: none;
-}
-
-#tabnav li:first-child {
-    border-left: 1px solid #6c6;
-}
-
-#tabnav .selected {
-    background: #fff;
-    border-bottom: 1px solid #fff;
-}
-
-#tabnav li:hover {
-    background: #9f9;
-    cursor: pointer;
-}
-
 .settings {
     padding: 0 15px;
-}
-
-#toolbar {
-    position: sticky;
-    top: 0;
 }
 
 .tooltip {
@@ -299,35 +255,6 @@ text.override {
 .editTreatment, .deleteTreatment {
     cursor: pointer;
     padding-left: 10px;
-}
-
-table.treatments {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-table.treatments thead tr {
-    background-color: grey;
-    color: white;
-}
-
-table.treatments tbody tr:hover {
-    background-color: lightskyblue;
-}
-
-table.treatments td, table.treatments th {
-    padding: 5px;
-}
-
-table.treatments tr.border_bottom td {
-    border: 1pt solid lightgrey;
-}
-
-table.treatments td.next_day {
-    background-color: lightgrey;
-    color: black;
-    column-span: 14;
-    font-weight: bold;
 }
 
 td.time {

@@ -19,7 +19,6 @@
         function drawSeries(plot, ctx, serie){
             if (serie.candle) {
                 offset = plot.getPlotOffset();
-                offset.left = offset.left;
                 var x1 = serie.xaxis.p2c(serie.data[0][0]);
                 var x2 = serie.xaxis.p2c(serie.data[1][0]);
                 var width = (x2 - x1) * 4 / 5;
