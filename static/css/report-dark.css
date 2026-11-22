@@ -132,6 +132,7 @@ input, select, textarea { background: var(--rd-surface-2); color: var(--rd-text)
 .border_bottom td { border-bottom-color: var(--rd-border); }
 #treatments-report .filterbar .recordcount { color: var(--rd-muted); }
 .treatments-classic-header { background: var(--rd-surface-3); }
+.treatments-classic-header > th { background: var(--rd-surface-3); }
 .treatments-classic-day { background: var(--rd-surface-2); }
 .rped-bgsource.icon-sort-numeric { color: var(--rd-insulin); }
 #dailystats-placeholder .tdborder, #success-placeholder td,

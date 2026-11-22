@@ -155,7 +155,7 @@ describe('stored-data browser output encoding in a real browser', function () {
         plugin.report(data, ['2025-01-01', '2025-01-02'], {order: 'oldest', units: 'mg/dl'});
       });
       const rows = () => page.locator('#treatments-report tr.border_bottom').count();
-      const headings = () => page.locator('#treatments-report td[colspan="12"]').allTextContents();
+      const headings = () => page.locator('#treatments-report td[colspan="14"]').allTextContents();
       assert.equal(await rows(), 4); assert.equal((await headings()).length, 2);
       assert.equal(await page.locator('#treatments-eventtype option').count(), 4);
       assert.equal((await page.locator('#treatments-eventtype option').allTextContents()).filter(text => text === 'Note & More (1)').length, 1);

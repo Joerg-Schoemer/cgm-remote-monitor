@@ -579,13 +579,15 @@ label {
 /* Treatments report */
 #treatments-report img:is(.editTreatment, .deleteTreatment) { cursor: pointer; }
 .treatments-classic-header { background: var(--bg-treatments-classic-header); }
-.treatments-classic-header > th { width: 50px; text-align: left; }
-.treatments-classic-header > th:first-child { width: auto; }
+.treatments-classic-header > th { width: 50px; text-align: left; height: var(--treatments-header-h); padding: 0 10px; vertical-align: middle; position: sticky; top: 0; background: var(--bg-treatments-classic-header); z-index: 3; }
+.treatments-classic-header > th:first-child { width: 50px; }
 .treatments-classic-header > th:nth-child(2) { width: 80px; }
-.treatments-classic-header > th:is(:nth-child(3), :nth-child(4), :nth-child(13)) { width: 150px; }
+.treatments-classic-header > th:nth-child(3) { width: 250px; }
+.treatments-classic-header > th:is(:nth-child(4), :nth-child(13)) { width: 150px; }
 .treatments-classic-header > th:nth-child(6) { width: 100px; }
-.treatments-classic-header > th:nth-child(14) { width: 300px; }
-.treatments-classic-day { background: var(--bg-treatments-classic-day); }
+.treatments-classic-header > th:nth-child(14) { width: auto; }
+.treatments-classic-day { background: var(--bg-treatments-classic-day); position: sticky; top: var(--treatments-header-h); z-index: 2; }
+.treatments-classic-table { width: 100%; --treatments-header-h: 34px; }
 .rped-bgsource { margin-right: 0; margin-left: -0.6em; }
 .rped-bgsource.icon-chart-line { color: var(--text-rped-bgsource-icon-chart-line); }
 .rped-bgsource.icon-tint { color: var(--text-rped-bgsource-icon-tint); }
