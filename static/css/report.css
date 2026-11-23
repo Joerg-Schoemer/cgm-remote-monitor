@@ -149,6 +149,17 @@ body {
   cursor:pointer;
 }
 
+/* Report type navigation: a dropdown replaces the tabs on small screens. */
+#report-select { display: none; }
+@media (max-width: 600px) {
+  #tabnav { display: none; }
+  #report-select {
+    display: block; width: 100%; margin: 8px auto 12px; padding: 9px 12px;
+    min-height: 44px; border: 1px solid var(--border-classic-tab); border-radius: 6px;
+    background: var(--bg-surface); color: var(--text-classic-muted); font: inherit;
+  }
+}
+
 .tooltip {
   top: 0;
   left: 0;

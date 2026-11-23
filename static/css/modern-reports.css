@@ -139,6 +139,19 @@
   .modern-ui .report-page :is(.agp-card-title, .agp-daily-label, .agp-target) { background: var(--bg-surface); }
 }
 
+/* Report type navigation: a dropdown replaces the tabs on small screens. */
+.modern-ui .report-page #report-select { display: none; }
+@media (max-width: 600px) {
+  .modern-ui .report-page #tabnav { display: none; }
+  .modern-ui .report-page #report-select {
+    display: block; width: 100%; margin: 8px auto 12px; padding: 9px 12px;
+    min-height: 44px; border: 1px solid var(--border-nav); border-radius: 8px;
+    background: var(--bg-surface); color: var(--text-body);
+    font: inherit; font-size: 15px; cursor: pointer;
+  }
+  .modern-ui .report-page #report-select:focus-visible { outline: 2px solid var(--border-menutab); outline-offset: 2px; }
+}
+
 /* Keep expanded filters close to the density of the established Reports UI. */
 .modern-ui .report-page .report-filter-panel > summary { min-height: 38px; padding: 8px 14px; font-size: 13px; }
 .modern-ui .report-page .report-filter-panel > summary::after { content: ''; width: 7px; height: 7px; margin-right: 3px; border: solid currentColor; border-width: 0 2px 2px 0; transform: rotate(45deg); }

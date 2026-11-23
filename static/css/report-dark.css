@@ -315,6 +315,8 @@ input, select, textarea { background: var(--rd-surface-2); color: var(--rd-text)
 .modern-ui .report-page #tabnav .selected { border-color: var(--rd-accent); background: var(--rd-accent); color: var(--text-inverse); box-shadow: none; }
 .modern-ui .report-page #tabnav .selected:hover { background: var(--rd-accent-hover); color: var(--text-inverse); }
 .modern-ui .report-page :is(#tabnav .menutab, .report-filter-panel > summary):focus-visible { outline-color: var(--rd-link); }
+.modern-ui .report-page #report-select { background: var(--rd-surface-2); color: var(--rd-text); border-color: var(--rd-border-strong); }
+.modern-ui .report-page #report-select:focus-visible { outline-color: var(--rd-link); }
 .modern-ui .report-page .report-filters { border-color: var(--rd-border); background: var(--rd-surface); }
 .modern-ui .report-page .report-filter-panel, .modern-ui .report-page .report-filter-panel .report-filters { border-color: var(--rd-border); background: var(--rd-surface); }
 .modern-ui .report-page .report-filter-panel > summary { background: var(--rd-surface-2); color: var(--rd-text); }
