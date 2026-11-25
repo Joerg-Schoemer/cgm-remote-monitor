@@ -175,7 +175,7 @@ describe('profile-derived browser sinks', function () {
     $('#profiles-chart b').first().text().should.equal(unsafeName);
     $('#profiles-chart').text().should.containEql('Fish & Chips < 70');
     $('#profiles-chart').text().should.containEql(unsafeTime);
-    $('#profiles-chart').find('img, svg, script, [onerror]').length.should.equal(0);
+    $('#profiles-chart').find('img, script, [onerror]').length.should.equal(0);
     should(env.window.profileInjected).equal(undefined);
   });
 

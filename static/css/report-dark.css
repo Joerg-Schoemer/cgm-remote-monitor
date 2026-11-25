@@ -306,7 +306,7 @@ input, select, textarea { background: var(--rd-surface-2); color: var(--rd-text)
 .modern-ui .report-page #treatments-report .filterbar select { background: var(--rd-surface-2); color: var(--rd-text); border-color: var(--rd-border-strong); }
 .modern-ui .report-page :is(.editor-content, .tabplaceholder) :is(input[type="checkbox"], input[type="radio"]) { accent-color: var(--rd-accent-hover); }
 .modern-ui .report-page .editor-content legend, .modern-ui .report-page .report-filters-title,
-.modern-ui .report-page .report-filter-table label { color: var(--rd-muted); }
+.modern-ui .report-page .report-filter-card label { color: var(--rd-muted); }
 .modern-ui .report-page .authentication-status { background: var(--rd-surface); color: var(--rd-muted); border-color: var(--rd-border); }
 .modern-ui .report-page :is(.authentication-status a, .tabplaceholder a, .presetdates) { color: var(--rd-link); }
 .modern-ui .report-page #tabnav { border-color: var(--rd-border); background: var(--rd-surface); }
@@ -406,3 +406,36 @@ input, select, textarea { background: var(--rd-surface-2); color: var(--rd-text)
 .modern-ui .report-page #treatments-report :is(.treatment-action, .treatment-menu > summary):hover { background: var(--rd-surface-3); border-color: var(--rd-border-strong); color: var(--rd-text-strong); }
 .modern-ui .report-page #treatments-report .treatment-menu[open] > .deleteTreatment { border-color: var(--rd-border-strong); background: var(--rd-surface-2); color: var(--rd-text-basal-net); box-shadow: 0 5px 18px #0009; }
 .modern-ui .report-page #treatments-report .treatment-detail-row > td { border-bottom-color: var(--rd-border); }
+
+/* Profiles report colours */
+:root { --profiles-basal: #5a9be6; --profiles-carbratio: #ff9a66; --profiles-isf: #66cc66; --profiles-target: #c792ea; }
+.profiles-ranges tr:nth-child(even) { background: var(--rd-surface-2); }
+.profiles-ranges tr.profiles-hl { background: var(--rd-surface-3); }
+
+/* Report filter cards and chips */
+.report-filter-card { background: var(--rd-surface-2); border-color: var(--rd-border); }
+.report-filter-card-title { color: var(--rd-text-strong); }
+.presetdates, .report-weekday-preset, .report-chip { border-color: var(--rd-border-strong); color: var(--rd-link); }
+.report-chip { color: var(--rd-text); }
+.presetdates:hover, .report-weekday-preset:hover, .report-chip:hover { background: var(--rd-surface-3); }
+.report-chip:has(input:checked) { background: var(--rd-accent); border-color: var(--rd-accent); color: #fff; }
+.report-filter-actions { background: var(--rd-surface); border-color: var(--rd-border); }
+
+.report-filter-card :is(input[type="date"], input[type="text"], input[type="number"], select) { background-color: var(--rd-surface); border-color: var(--rd-border-strong); color: var(--rd-text); color-scheme: dark; }
+.report-filter-card :is(input[type="date"], input[type="text"], input[type="number"], select):focus { border-color: var(--rd-link); box-shadow: 0 0 0 3px rgba(121, 176, 240, 0.28); }
+.report-filter-card select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23a5b4c6' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+
+.report-page .authentication-status { background: var(--rd-surface); border-color: var(--rd-border); color: var(--rd-muted); }
+.report-page .authentication-status > strong { color: var(--rd-text-strong); }
+.report-page .authentication-status a { border-color: var(--rd-border-strong); color: var(--rd-link); }
+.report-page .authentication-status a:hover { background: var(--rd-surface-3); }
+
+.report-page .tabplaceholder h2, .report-page .agp-h2 { border-left-color: var(--rd-accent); color: var(--rd-text-strong); }
+.report-page .report-divider { background: var(--rd-border); }
+
+.daily-total-card { background: var(--rd-surface-2); border-color: var(--rd-border); color: var(--rd-text); }
+.daily-total-title, .daily-total-value { color: var(--rd-text-strong); }
+.daily-total-label { color: var(--rd-muted); }
+.daily-total-note { color: var(--rd-faint); }
+.daily-total-bar { background: var(--rd-surface-3); }
+.daily-total-nutrition { border-top-color: var(--rd-border); }

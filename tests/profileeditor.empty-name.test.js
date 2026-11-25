@@ -95,7 +95,7 @@ describe('Unnamed profile editor', function () {
       profile: env.window.Nightscout.client.profilefunctions
     } };
     require('../lib/report_plugins/profiles')().report({ profiles: [clone(fixture)] });
-    assert.strictEqual($('#profiles-chart > table > tr > td').length, 2);
+    assert.strictEqual($('#profiles-chart .profiles-card').length, 2);
     assert.ok($('#profiles-chart').text().includes('Named'));
     assert.strictEqual(writes.length, 0);
   });

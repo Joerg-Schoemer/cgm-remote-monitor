@@ -2,6 +2,11 @@
    Loaded synchronously before them (report.css itself is only preloaded). Values are the light
    theme; report-dark.css defines its own tokens for colours that only exist in the dark theme. */
 :root {
+  /* Profiles report: one colour per quantity */
+  --profiles-basal                            : #1f6fc4;
+  --profiles-carbratio                        : #d2691e;
+  --profiles-isf                              : #2e7d32;
+  --profiles-target                           : #8e44ad;
   /* Base colour palette (deduplicated) */
   /* Transparent / alpha */
   --color-alpha-01                            : rgba(0, 0, 0, 0.06);

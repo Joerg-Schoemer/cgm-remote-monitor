@@ -45,88 +45,88 @@
   </ul>
   <select id="report-select" class="report-select" aria-label="Report type"></select>
   <main class="editor-content">
+    <details class="report-filter-panel" open>
+    <summary class="translate">Report filters</summary>
     <fieldset id="report-filters" class="report-filters">
     <legend class="report-filters-title translate">Report filters</legend>
-    <table class="report-filter-table">
-      <tr class="report-dates-row">
-        <td><input type="checkbox" id="rp_enabledate" aria-label="Filter by date" checked></td>
-        <td>
+    <div class="report-filter-cards">
+      <section class="report-filter-card report-card-range">
+        <h3 class="report-filter-card-title translate">Time range</h3>
+        <div class="report-filter-row report-dates-row">
+          <input type="checkbox" id="rp_enabledate" aria-label="Filter by date" checked>
           <label for="rp_from" class="translate">From</label>: <input type="date" id="rp_from">
           <label for="rp_to" class="translate">To</label>: <input type="date" id="rp_to">
-          <span class="report-date-presets"><a href="#" data-days="1" class="presetdates"><span class="translate">Today</span></a>
+        </div>
+        <div class="report-date-presets">
+          <a href="#" data-days="1" class="presetdates"><span class="translate">Today</span></a>
           <a href="#" data-days="2" class="presetdates"><span class="translate">Last 2 days</span></a>
           <a href="#" data-days="3" class="presetdates"><span class="translate">Last 3 days</span></a>
           <a href="#" data-days="7" class="presetdates"><span class="translate">Last week</span></a>
           <a href="#" data-days="14" class="presetdates"><span class="translate">Last 2 weeks</span></a>
           <a href="#" data-days="31" class="presetdates"><span class="translate">Last month</span></a>
-          <a href="#" data-days="90" class="presetdates"><span class="translate">Last 3 months</span></a></span>
-        </td>
-      </tr>
-      <tr class="rp_foodgui report-food-filter-row" style="display:none">
-        <td></td>
-        <td>
+          <a href="#" data-days="90" class="presetdates"><span class="translate">Last 3 months</span></a>
+        </div>
+      </section>
+
+      <section class="report-filter-card report-card-days">
+        <h3 class="report-filter-card-title translate">Filter days</h3>
+        <div class="report-filter-row rp_foodgui report-food-filter-row" style="display:none">
           <label for="rp_category" class="translate">Category</label>: <select id="rp_category"></select>
           <label for="rp_subcategory" class="translate">Subcategory</label>: <select id="rp_subcategory"></select>
           <label for="rp_name" class="translate">Name</label>: <input type="text" id="rp_name">
-        </td>
-      </tr>
-      <tr class="rp_foodgui" style="display:none">
-        <td>
+        </div>
+        <div class="report-filter-row rp_foodgui" style="display:none">
           <input type="checkbox" id="rp_enablefood" aria-label="Filter by food">
-        </td>
-        <td>
           <label for="rp_food" class="translate">Days with food</label>: <select id="rp_food"></select>
-        </td>
-      </tr>
-      <tr>
-        <td><input type="checkbox" id="rp_enablenotes" aria-label="Filter by notes"></td>
-        <td>
+        </div>
+        <div class="report-filter-row">
+          <input type="checkbox" id="rp_enablenotes" aria-label="Filter by notes">
           <label for="rp_notes" class="translate">Days with notes containing</label>: <input type="text" id="rp_notes">
-        </td>
-      </tr>
-        <tr>
-          <td><input type="checkbox" id="rp_enableeventtype" aria-label="Filter by event type"></td>
-          <td>
-            <label for="rp_eventtype" class="translate">Days with event type</label>: <select id="rp_eventtype"></select>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2">
-            <label><input type="checkbox" id="rp_mo" checked><span class="translate">Mo</span></label>
-            <label><input type="checkbox" id="rp_tu" checked><span class="translate">Tu</span></label>
-            <label><input type="checkbox" id="rp_we" checked><span class="translate">We</span></label>
-            <label><input type="checkbox" id="rp_th" checked><span class="translate">Th</span></label>
-            <label><input type="checkbox" id="rp_fr" checked><span class="translate">Fr</span></label>
-            <label><input type="checkbox" id="rp_sa" checked><span class="translate">Sa</span></label>
-            <label><input type="checkbox" id="rp_su" checked><span class="translate">Su</span></label>
-          </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td colspan="2">
-            <label for="rp_targetlow" class="translate">Target BG range bottom</label>:
-            <input type="number" size="3" step="0.1" id="rp_targetlow">
-            <label for="rp_targethigh" class="translate">top</label>:
-            <input type="number" size="3" step="0.1" id="rp_targethigh">
-          </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td colspan="2">
-            <span class="translate">Order</span>:
-            <!-- many email GUIs place newest on top, less scrolling, adjusting my nightscout to do that too! -dboland -->
-            <input type="radio" name="rp_sorting" id="rp_oldestontop">
-            <label for="rp_oldestontop" class="translate">oldest on top</label>
-            &nbsp;
-            <input type="radio" name="rp_sorting" id="rp_newestontop" checked>
-            <label for="rp_newestontop" class="translate">newest on top</label>
-          </td>
-          <td></td>
-        </tr>
-    </table>
-    <button id="rp_show" class="translate">Show</button>
+        </div>
+        <div class="report-filter-row">
+          <input type="checkbox" id="rp_enableeventtype" aria-label="Filter by event type">
+          <label for="rp_eventtype" class="translate">Days with event type</label>: <select id="rp_eventtype"></select>
+        </div>
+        <div class="report-weekdays">
+          <label class="report-chip"><input type="checkbox" id="rp_mo" checked><span class="translate">Mo</span></label>
+          <label class="report-chip"><input type="checkbox" id="rp_tu" checked><span class="translate">Tu</span></label>
+          <label class="report-chip"><input type="checkbox" id="rp_we" checked><span class="translate">We</span></label>
+          <label class="report-chip"><input type="checkbox" id="rp_th" checked><span class="translate">Th</span></label>
+          <label class="report-chip"><input type="checkbox" id="rp_fr" checked><span class="translate">Fr</span></label>
+          <label class="report-chip"><input type="checkbox" id="rp_sa" checked><span class="translate">Sa</span></label>
+          <label class="report-chip"><input type="checkbox" id="rp_su" checked><span class="translate">Su</span></label>
+        </div>
+        <div class="report-weekday-presets">
+          <button type="button" class="report-weekday-preset" data-days="mo,tu,we,th,fr"><span class="translate">Weekdays</span></button>
+          <button type="button" class="report-weekday-preset" data-days="sa,su"><span class="translate">Weekend</span></button>
+          <button type="button" class="report-weekday-preset" data-days="mo,tu,we,th,fr,sa,su"><span class="translate">All days</span></button>
+        </div>
+      </section>
+
+      <section class="report-filter-card report-card-display">
+        <h3 class="report-filter-card-title translate">Display options</h3>
+        <div class="report-filter-row">
+          <label for="rp_targetlow" class="translate">Target BG range bottom</label>:
+          <input type="number" size="3" step="0.1" id="rp_targetlow">
+          <label for="rp_targethigh" class="translate">top</label>:
+          <input type="number" size="3" step="0.1" id="rp_targethigh">
+        </div>
+        <div class="report-filter-row">
+          <span class="translate">Order</span>:
+          <!-- many email GUIs place newest on top, less scrolling, adjusting my nightscout to do that too! -dboland -->
+          <input type="radio" name="rp_sorting" id="rp_oldestontop">
+          <label for="rp_oldestontop" class="translate">oldest on top</label>
+          <input type="radio" name="rp_sorting" id="rp_newestontop" checked>
+          <label for="rp_newestontop" class="translate">newest on top</label>
+        </div>
+      </section>
+    </div>
+    <div class="report-filter-actions">
+      <button id="rp_show" class="translate">Show</button>
+    </div>
     <div id="info" role="status" aria-live="polite"></div>
     </fieldset>
+    </details>
     <hr class="report-divider">
     <div id="pluginchartplaceholders"></div>
   </main>

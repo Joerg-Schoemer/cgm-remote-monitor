@@ -4,13 +4,11 @@
 .modern-ui .report-page .toolbar-title h2 { color: var(--text-toolbar-title-h2); }
 .modern-ui .report-page .editor-content { width: 90vw; max-width: 90vw; padding-left: 0; padding-right: 0; background: transparent; }
 .modern-ui .report-page .toolbar-title { width: 90vw; max-width: 90vw; padding-left: 0; padding-right: 0; }
-.modern-ui .report-page .authentication-status { width: 90vw; max-width: 90vw; padding-left: 0; padding-right: 0; }
+.modern-ui .report-page .authentication-status { width: 90vw; max-width: 90vw; }
 .modern-ui .report-page .agp-wrap { width: 100%; max-width: 90vw; }
 .modern-ui .report-page .editor-content :is(input, select, textarea) { background: var(--bg-surface); color: var(--text-body); border-color: var(--border-control); }
 .modern-ui .report-page .editor-content :is(input[type="checkbox"], input[type="radio"]) { accent-color: var(--text-input); }
 .modern-ui .report-page .editor-content legend { color: var(--text-label); }
-.modern-ui .report-page .authentication-status { background: var(--bg-surface); color: var(--text-authentication-status); border-color: var(--border-subtle); }
-.modern-ui .report-page .authentication-status a { color: var(--text-link); }
 
 .modern-ui .report-page #tabnav {
   display: flex; flex-wrap: nowrap; gap: 4px; width: 90vw; max-width: 90vw; margin: 0 auto 16px;
@@ -37,25 +35,8 @@
 .modern-ui .report-page .report-filter-panel[open] > summary { margin-bottom: 8px; border-bottom: 1px solid var(--border-panel); }
 .modern-ui .report-page .report-filter-panel .report-filters-title { display: none; }
 .modern-ui .report-page .report-filters-title { display: block; padding: 0 8px; color: var(--text-label); font-size: 15px; font-weight: 600; }
-.modern-ui .report-page .report-filter-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-.modern-ui .report-page .report-filter-table tbody { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
-.modern-ui .report-page .report-filter-table tr { display: grid; grid-template-columns: 28px minmax(0, 1fr); align-items: start; }
-.modern-ui .report-page .report-filter-table :is(.report-dates-row, .report-food-filter-row) { grid-column: 1 / -1; }
-.modern-ui .report-page .report-filter-table td[colspan] { grid-column: 1 / -1; }
-.modern-ui .report-page .report-filter-table td:empty:not(:first-child) { display: none; }
-.modern-ui .report-page .report-filter-table td { padding: 8px 4px; vertical-align: top; }
-.modern-ui .report-page .report-filter-table td:first-child:not([colspan]) { width: 32px; }
-.modern-ui .report-page .report-filter-table label { display: inline-flex; gap: 5px; margin: 4px 8px 4px 0; color: var(--text-label); }
-.modern-ui .report-page .report-filter-table :is(input, select) { margin-bottom: 4px; }
-.modern-ui .report-page .report-filter-table input[type="number"] { width: 84px; }
-.modern-ui .report-page .report-filter-table input[type="checkbox"] { margin-top: 13px; }
-.modern-ui .report-page .report-filter-table label input[type="checkbox"] { margin-top: 0; }
-.modern-ui .report-page .report-date-presets { display: inline-flex; flex-wrap: wrap; gap: 6px; max-width: 100%; margin: 0; vertical-align: middle; }
-.modern-ui .report-page .presetdates { margin: 0; padding: 6px 10px; border: 1px solid var(--border-presetdates); border-radius: 6px; color: var(--text-link); text-decoration: none; font-size: 12px; }
-.modern-ui .report-page .presetdates:hover { background: var(--bg-presetdates); }
 .modern-ui .report-page #rp_show { min-width: 140px; min-height: 44px; margin-top: 14px; padding: 10px 16px; border: 1px solid var(--border-tabnav-selected); border-radius: 8px; background: var(--bg-selected); color: var(--text-inverse); font: inherit; font-weight: 650; text-transform: none; cursor: pointer; }
 .modern-ui .report-page #info { margin-top: 12px; color: var(--text-authentication-status); font-size: 13px; overflow-wrap: anywhere; }
-.modern-ui .report-page .report-divider { margin: 20px 0; border: 0; }
 .modern-ui .report-page .tabplaceholder {
   width: 100%; max-width: 90vw; min-width: 0; padding: 24px; border: 1px solid var(--border-tabplaceholder); border-radius: 12px; box-shadow: 0 3px 14px var(--shadow-tabplaceholder);
   background: var(--bg-surface); color: var(--text-body); color-scheme: light; overflow-x: auto; scrollbar-width: thin;
@@ -117,16 +98,10 @@
   .modern-ui .report-page .agp-stat-value { font-size: 26px; }
   .modern-ui .report-page .agp-tir { gap: 12px; }
 }
-@media (max-width: 1000px) {
-  .modern-ui .report-page .report-filter-table tbody { grid-template-columns: minmax(0, 1fr); }
-}
 @media (max-width: 600px) {
   .modern-ui .report-page #tabnav { margin: 0 auto 12px; }
   .modern-ui .report-page #tabnav .menutab { min-height: 40px; padding: 9px 10px; font-size: 12px; }
   .modern-ui .report-page .report-filters { padding: 12px; }
-  .modern-ui .report-page .report-filter-table td { padding: 6px 2px; }
-  .modern-ui .report-page .report-filter-table :is(select, input[type="text"]) { width: 100%; }
-  .modern-ui .report-page .report-filter-table input[type="date"] { width: min(100%, 160px); }
   .modern-ui .report-page #rp_show { width: 100%; }
   .modern-ui .report-page .tabplaceholder { padding: 16px; }
   .modern-ui .report-page .tabplaceholder h2 { font-size: 21px; }
@@ -157,19 +132,11 @@
 .modern-ui .report-page .report-filter-panel > summary::after { content: ''; width: 7px; height: 7px; margin-right: 3px; border: solid currentColor; border-width: 0 2px 2px 0; transform: rotate(45deg); }
 .modern-ui .report-page .report-filter-panel[open] > summary::after { transform: rotate(225deg); }
 .modern-ui .report-page .report-filter-panel .report-filters { padding: 0 14px 10px; }
-.modern-ui .report-page .report-filter-table { font-size: 13px; }
-.modern-ui .report-page .report-filter-table td { min-width: 0; padding: 3px 2px; }
-.modern-ui .report-page .report-filter-table label { gap: 4px; margin: 2px 5px 2px 0; }
-.modern-ui .report-page #report-filters :is(input, select) { min-height: 28px; margin-bottom: 0; padding: 3px 7px; border-radius: 5px; font-size: 13px; }
-.modern-ui .report-page #report-filters :is(input[type="checkbox"], input[type="radio"]) { width: 16px; height: 16px; min-height: 0; margin: 6px 4px 0 0; padding: 0; }
 .modern-ui .report-page #report-filters label :is(input[type="checkbox"], input[type="radio"]) { margin-top: 0; }
-.modern-ui .report-page .report-date-presets { gap: 4px; margin: 0; }
-.modern-ui .report-page .presetdates { padding: 4px 8px; font-size: 12px; }
 .modern-ui .report-page #rp_show { min-width: 90px; min-height: 32px; margin-top: 6px; padding: 5px 14px; font-size: 13px; }
 .modern-ui .report-page #info { margin-top: 6px; }
 .modern-ui .report-page #info:empty { display: none; }
 @media (max-width: 600px) {
-  .modern-ui .report-page .report-filter-table :is(select, input[type="text"]) { width: auto; max-width: 100%; }
 }
 
 /* Report dialogs and hover details follow the same light canvas. */

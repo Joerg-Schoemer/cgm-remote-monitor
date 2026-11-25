@@ -687,3 +687,151 @@ label {
 .report-axis-left { text-anchor: end; }
 .report-axis :is(.domain, .tick line) { stroke: currentColor; }
 .report-axis .tick text { fill: currentColor; }
+
+/* Profiles report: responsive cards + basal step chart */
+.profiles-grid { display: flex; flex-direction: column; gap: 24px; }
+.profiles-card { min-width: 0; overflow-wrap: anywhere; margin-bottom: 0; }
+.profiles-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 16px; align-items: stretch; }
+.profiles-cards > .agp-card { margin-bottom: 0; min-width: 0; }
+.profiles-stat-text { font-size: 16px; }
+.profiles-step-chart { display: block; flex: 1 1 260px; min-width: 0; height: auto; max-width: 600px; }
+.profiles-step-area { fill: var(--profiles-color); fill-opacity: 0.15; stroke: none; }
+.profiles-step-line { fill: none; stroke: var(--profiles-color); stroke-width: 2; stroke-linejoin: miter; vector-effect: non-scaling-stroke; }
+.profiles-grid-line { stroke: currentColor; stroke-opacity: 0.2; stroke-width: 1; vector-effect: non-scaling-stroke; }
+.profiles-axis { fill: currentColor; font-size: 10px; }
+.profiles-step-chart { touch-action: pan-y; cursor: crosshair; }
+.profiles-cursor { pointer-events: none; }
+.profiles-cursor-line { stroke: currentColor; stroke-opacity: 0.6; stroke-dasharray: 3 3; vector-effect: non-scaling-stroke; }
+.profiles-cursor-dot { fill: var(--profiles-color); stroke: Canvas; stroke-width: 1.5; }
+.profiles-cursor-text { fill: currentColor; font-size: 11px; font-weight: bold; paint-order: stroke; stroke: Canvas; stroke-width: 3px; stroke-linejoin: round; }
+
+.profiles-step-basal { --profiles-color: var(--profiles-basal); }
+.profiles-step-carbratio { --profiles-color: var(--profiles-carbratio); }
+.profiles-step-isf { --profiles-color: var(--profiles-isf); }
+.profiles-step-label { fill: currentColor; font-size: 9px; }
+.profiles-unit { opacity: 0.7; }
+.profiles-card .profiles-ranges { width: auto; margin: 4px 0 6px; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.profiles-ranges td { padding: 1px 10px; }
+.profiles-ranges tr:nth-child(even) { background: var(--color-alpha-01); }
+.profiles-ranges .profiles-value { text-align: right; font-weight: 600; }
+.profiles-metric-body { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 4px 16px; }
+.profiles-metric-body > .profiles-ranges { flex: 0 0 auto; }
+
+.profiles-step-hl { fill: var(--profiles-color); opacity: 0; pointer-events: none; }
+.profiles-step-hl.profiles-hl { opacity: 0.2; }
+.profiles-step-dot { fill: var(--profiles-color); pointer-events: none; }
+.profiles-ranges tr[data-idx] { cursor: default; }
+.profiles-ranges tr.profiles-hl { background: var(--color-alpha-03); }
+.profiles-active-card { margin-top: 16px; margin-bottom: 16px; }
+.profiles-timeline { display: block; max-width: none; }
+#profiles-timeline { overflow-x: auto; overflow-y: hidden; padding-bottom: 6px; }
+.profiles-tl-item { cursor: pointer; --profiles-color: var(--profiles-basal); }
+.profiles-tl-bar { fill: var(--profiles-color); fill-opacity: 0.18; stroke: var(--profiles-color); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.profiles-tl-dot { fill: var(--profiles-color); stroke: Canvas; stroke-width: 1.5; }
+.profiles-tl-item:hover .profiles-tl-bar { fill-opacity: 0.35; }
+/* Selected record (WCAG 1.4.1 / 1.4.11): not colour alone - thick dark outline, filled bar, larger ring-shaped dot,
+   bold underlined label; every cue has at least 3:1 contrast against the background (text colour on card). */
+.profiles-tl-selected .profiles-tl-bar { fill-opacity: 0.55; stroke: currentColor; stroke-width: 3; }
+.profiles-tl-selected .profiles-tl-dot { stroke: currentColor; stroke-width: 3; }
+.profiles-tl-label-sel { font-weight: 700; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 2px; }
+.profiles-timeline-card { margin-top: 16px; margin-bottom: 16px; }
+.profiles-active-card { margin-top: 16px; }
+.agp-wrap.profiles-wrap, .modern-ui .report-page .agp-wrap.profiles-wrap { width: 100%; max-width: none; }
+.profiles-cards > .agp-card { display: flex; flex-direction: column; }
+.profiles-cards > .agp-card > .profiles-metric-body { flex: 1 1 auto; align-content: space-between; }
+.profiles-metric-body > .profiles-step-chart { align-self: flex-end; }
+.profiles-step-target { --profiles-color: var(--profiles-target); }
+
+/* Report filters: cards, chips and a sticky action bar */
+.report-filter-panel > summary { cursor: pointer; font-weight: 600; padding: 6px 0; }
+.report-filter-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 16px; align-items: stretch; }
+.report-filter-card { min-width: 0; padding: 12px 14px; border: 1px solid var(--border-agp-card); border-radius: 10px; background: var(--bg-surface); }
+.report-card-range { grid-column: 1 / -1; }
+.report-filter-card-title { margin: 0 0 10px; font-size: 14px; font-weight: 700; }
+.report-filter-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin-bottom: 8px; }
+.report-filter-row > :is(select, input[type="text"]) { flex: 1 1 140px; min-width: 0; max-width: 100%; }
+.report-filter-row input[type="number"] { width: 84px; }
+.report-date-presets, .report-weekdays, .report-weekday-presets { display: flex; flex-wrap: wrap; gap: 6px; }
+.report-weekdays { margin: 4px 0 8px; }
+.presetdates, .report-weekday-preset, .report-chip { display: inline-flex; align-items: center; margin: 0; padding: 6px 12px; border: 1px solid var(--border-presetdates); border-radius: 999px; background: transparent; color: var(--text-link); font: inherit; font-size: 12px; text-decoration: none; cursor: pointer; }
+.presetdates:hover, .report-weekday-preset:hover, .report-chip:hover { background: var(--bg-presetdates); }
+.report-chip { position: relative; color: inherit; user-select: none; }
+.report-chip input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+.report-chip:has(input:checked) { background: var(--bg-selected, #1f6fc4); border-color: var(--bg-selected, #1f6fc4); color: var(--text-inverse, #fff); }
+.report-chip:has(input:focus-visible) { outline: 2px solid var(--border-menutab, #1f6fc4); outline-offset: 2px; }
+.report-filter-actions { margin-top: 14px; }
+@media (max-width: 600px) {
+  .report-filter-actions { position: sticky; bottom: 0; z-index: 5; margin: 14px -12px 0; padding: 10px 12px; background: var(--bg-surface); border-top: 1px solid var(--border-agp-card); }
+  .report-filter-actions #rp_show { width: 100%; }
+}
+
+/* Report filter controls: rounded fields with a clear focus ring */
+.report-filter-card :is(input[type="date"], input[type="text"], input[type="number"], select) {
+  box-sizing: border-box; min-height: 36px; margin: 0; padding: 6px 12px;
+  border: 1px solid var(--border-control); border-radius: 8px;
+  background-color: var(--bg-surface); color: inherit; font: inherit; font-size: 13px; line-height: 1.3;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.report-filter-card :is(input[type="date"], input[type="text"], input[type="number"], select):hover { border-color: var(--border-menutab, #1f6fc4); }
+.report-filter-card :is(input[type="date"], input[type="text"], input[type="number"], select):focus {
+  outline: none; border-color: var(--border-menutab, #1f6fc4); box-shadow: 0 0 0 3px var(--color-alpha-18);
+}
+.report-filter-card select {
+  appearance: none; -webkit-appearance: none; padding-right: 32px; cursor: pointer; text-overflow: ellipsis;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23667' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 12px center;
+}
+.report-filter-card :is(input[type="checkbox"], input[type="radio"]):not(.report-chip input) {
+  width: 17px; height: 17px; margin: 0; accent-color: var(--bg-selected, #1f6fc4); cursor: pointer;
+}
+.report-filter-card label { cursor: pointer; }
+.report-filter-card .report-filter-row > label { margin: 0; }
+/* Keyboard focus: dashed text-colour outline on the bar (outline itself is unreliable on SVG groups) */
+.profiles-tl-item:focus { outline: none; }
+.profiles-tl-item:focus-visible .profiles-tl-bar { stroke: currentColor; stroke-width: 3; stroke-dasharray: 6 3; }
+.profiles-tl-item:focus-visible .profiles-tl-dot { stroke: currentColor; stroke-width: 3; }
+@media (forced-colors: active) {
+  .profiles-tl-bar { fill: Canvas; stroke: CanvasText; }
+  .profiles-tl-selected .profiles-tl-bar { fill: Highlight; stroke-width: 3; }
+  .profiles-tl-dot { fill: CanvasText; stroke: Canvas; }
+  .profiles-tl-selected .profiles-tl-dot { fill: Highlight; stroke: CanvasText; }
+}
+
+/* Authentication status: a card with the state on top and the actions as chips */
+.report-page .authentication-status {
+  box-sizing: border-box; width: calc(100% - 32px); margin: 24px auto 32px; padding: 16px 20px;
+  border: 1px solid var(--border-agp-card); border-radius: 12px; background: var(--bg-surface);
+  font-size: 13px; line-height: 1.7; overflow-wrap: anywhere;
+}
+.report-page .authentication-status > strong { display: block; margin-bottom: 4px; font-size: 14px; font-weight: 700; color: var(--text-agp-card-title); }
+.report-page .authentication-status a {
+  display: inline-flex; align-items: center; margin: 6px 6px 0 0; padding: 3px 12px;
+  border: 1px solid var(--border-presetdates); border-radius: 999px; color: var(--text-link); text-decoration: none;
+}
+.report-page .authentication-status a:hover { background: var(--bg-presetdates); }
+.report-page .authentication-status a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+
+/* Report headings and the divider below the filters */
+.report-page .tabplaceholder h2, .report-page .agp-h2 {
+  margin: 0 0 16px; padding-left: 12px; border-left: 4px solid var(--bg-selected, #1f6fc4);
+  font-size: 24px; font-weight: 650; line-height: 1.25; letter-spacing: -.02em;
+}
+.report-page .report-divider { height: 1px; margin: 24px 0; border: 0; background: var(--border-agp-card); }
+@media (max-width: 600px) {
+  .report-page .tabplaceholder h2, .report-page .agp-h2 { font-size: 21px; }
+}
+
+/* Day to day: card with the insulin totals across all shown days */
+.daily-total-card { box-sizing: border-box; max-width: 900px; margin: 20px 0; padding: 16px 20px; border: 1px solid var(--border-agp-card); border-radius: 12px; background: var(--bg-surface); }
+.daily-total-title { margin: 0 0 12px; font-size: 15px; font-weight: 700; }
+.daily-total-grid, .daily-total-nutrition { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px 20px; }
+.daily-total-item { display: flex; flex-direction: column; min-width: 0; }
+.daily-total-label { font-size: 12px; color: var(--text-classic-muted); }
+.daily-total-value { font-size: 24px; font-weight: 700; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.daily-total-main .daily-total-value { font-size: 30px; }
+.daily-total-note { font-size: 11px; color: var(--text-agp-faint); }
+.daily-total-bar { display: flex; height: 12px; margin: 16px 0 4px; overflow: hidden; border-radius: 6px; background: var(--color-alpha-02); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.daily-total-bar-basal { background: #347de1; }
+.daily-total-bar-bolus { background: #925bd7; }
+.daily-total-nutrition { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border-agp-card); }
+.daily-total-nutrition .daily-total-value { font-size: 18px; }
